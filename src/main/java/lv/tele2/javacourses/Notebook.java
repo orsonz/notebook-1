@@ -47,6 +47,15 @@ public class Notebook implements ShellDependent {
     }
 
     @Command
+    public Record createAlarm(String note, String time) {
+        Alarm result = new Alarm();
+        result.setNote(note);
+        result.setTime(time);
+        records.add(result);
+        return result;
+    }
+
+    @Command
     public Record edit(int id) throws IOException {
         Record r = find(id);
         if (r != null) {
