@@ -1,3 +1,7 @@
 cr "this is a reminder" "18.05.2017 13:58"
 cn "this is a note"
 cp John Smith 111222333
+cp Mike Davidoff 333444 555599999 343434334
+cp Elizabeth Scott 4444677722 43434349999
+cp James Lewis 123456 123456
+cp Emile Correa 777777777 444444444 11111111
