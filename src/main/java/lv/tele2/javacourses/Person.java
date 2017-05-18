@@ -1,5 +1,7 @@
 package lv.tele2.javacourses;
 
+import asg.cliche.Command;
+
 import java.util.ArrayList;
 
 public class Person extends Record {
@@ -11,6 +13,7 @@ public class Person extends Record {
         return firstName;
     }
 
+    @Command
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -19,6 +22,7 @@ public class Person extends Record {
         return lastName;
     }
 
+    @Command
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
@@ -34,7 +38,7 @@ public class Person extends Record {
     @Override
     public String toString() {
         return "Person{" +
-                "id=" + getId() +
+                "id='" + getId() + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", phone='" + phone + '\'' +
