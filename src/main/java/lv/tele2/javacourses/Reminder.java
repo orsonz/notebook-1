@@ -5,9 +5,10 @@ import asg.cliche.Command;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Reminder extends Note {
+public class Reminder extends Note implements Expirable {
     private static final DateTimeFormatter FORMAT = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
     private LocalDateTime time;
+    private boolean dismissed;
 
     public LocalDateTime getTime() {
         return time;
@@ -38,5 +39,19 @@ public class Reminder extends Note {
                 ", note='" + getNote() + '\'' +
                 ", time='" + time.format(FORMAT) + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean isExpired() {
+        if (dismissed) {
+            return false;
+        }
+        LocalDateTime currentDate = LocalDateTime.now();
+        return time.isBefore(currentDate);
+    }
+
+    @Override
+    public void dismiss() {
+        dismissed = true;
     }
 }
