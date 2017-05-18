@@ -45,4 +45,26 @@ public class Person extends Record {
                 '}';
     }
 
+    @Override
+    public boolean contains(String str) {
+        if (super.contains(str)) {
+            return true;
+        }
+        String low = str.toLowerCase();
+        String fn = firstName.toLowerCase();
+        String ln = lastName.toLowerCase();
+        if (fn.contains(low)) {
+            return true;
+        } else if (ln.contains(low)) {
+            return true;
+        } else {
+            for (String p : phone) {
+                String lp = p.toLowerCase();
+                if (lp.contains(low)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }

@@ -23,6 +23,15 @@ public class Reminder extends Note {
     }
 
     @Override
+    public boolean contains(String str) {
+        if (super.contains(str)) {
+            return true;
+        }
+        String lt = time.format(FORMAT).toLowerCase();
+        return lt.contains(str);
+    }
+
+    @Override
     public String toString() {
         return "Reminder{" +
                 "id='" + getId() + '\'' +
